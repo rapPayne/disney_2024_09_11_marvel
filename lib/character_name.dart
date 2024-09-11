@@ -7,17 +7,21 @@ class CharacterName extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Image.network(
-          '${character.thumbnail?.path}.${character.thumbnail?.extension}',
-          width: 100,
-        ),
-        Text(
-          character.name ?? "",
-          style: Theme.of(context).textTheme.headlineMedium,
-        ),
-      ],
+    return GestureDetector(
+      onTap: () =>
+          Navigator.pushNamed(context, '/character', arguments: character),
+      child: Row(
+        children: [
+          Image.network(
+            '${character.thumbnail?.path}.${character.thumbnail?.extension}',
+            width: 100,
+          ),
+          Text(
+            character.name ?? "",
+            style: Theme.of(context).textTheme.headlineMedium,
+          ),
+        ],
+      ),
     );
   }
 }

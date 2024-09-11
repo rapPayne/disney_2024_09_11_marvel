@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_dotenv/flutter_dotenv.dart';
+import 'package:marvel_character_lookup/character.dart';
 import 'package:marvel_character_lookup/character_lookup.dart';
 
 void main() async {
@@ -19,7 +20,10 @@ class MyApp extends StatelessWidget {
         textTheme: TextTheme(),
         useMaterial3: true,
       ),
-      home: const CharacterLookup(),
+      routes: {
+        "/": (context) => const CharacterLookup(),
+        "/character": (context) => const Character(),
+      },
     );
   }
 }
